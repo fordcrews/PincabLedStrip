@@ -12,8 +12,8 @@ FASTLED_USING_NAMESPACE
 
 
 //#define LED_TYPE    WS2811
-#define LED_TYPE    WS2812
-//#define LED_TYPE    WS2812B
+//#define LED_TYPE    WS2812
+#define LED_TYPE    WS2812B
 //#define LED_TYPE    WS2813
 //#define COLOR_ORDER RGB
 #define COLOR_ORDER GRB

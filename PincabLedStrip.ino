@@ -21,7 +21,7 @@ static WifiDebug wifidebug;
 #include "LedStrip.h"
 
 #define FirmwareVersionMajor 2
-#define FirmwareVersionMinor 0
+#define FirmwareVersionMinor 1
 
 //Defines the Pinnumber to which the built in led
 #define LedPin LED_BUILTIN
@@ -107,12 +107,11 @@ void setup() {
   ledstrip.begin();
   ledstrip.show();
 
-  if (HasSetting(SettingsEnum::ACTIVITY_LED)){
     //Initialize the led pin
     pinMode(LedPin, OUTPUT);
-  }
-
+  digitalWrite(LedPin, LOW);
   SetBlinkMode(0);
+  Blink();
 
 #ifdef DEBUG_ON_WIFI
   wifidebug.debug_send_msg("Setup done");
@@ -232,7 +231,9 @@ void SetBlinkMode(int Mode) {
 
 void ActivityLed(int activity)
 {
-  if (!HasSetting(SettingsEnum::ACTIVITY_LED)) return;
+  if (!HasSetting(SettingsEnum::ACTIVITY_LED)) {
+    return;
+  }
 
   if (activity < 0){
     digitalWrite(LedPin, !digitalRead(LedPin));
