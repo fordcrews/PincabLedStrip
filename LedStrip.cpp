@@ -120,14 +120,16 @@ void LedStrip::setPixel(uint32_t num, int color)
   leds[strip][offset].r = ((color >> 16) & 0xFF); // Shift the integer right 8 bits.
 }
 
-int LedStrip::getPixel(uint32_t num)
+CRGB blackpixel(0);
+
+CRGB& LedStrip::getPixel(uint32_t num)
 {
   uint32_t strip, offset;
 
   strip = stripIndex[num];//start_num / stripLen;
   offset = num-stripStartOffset[strip];// % stripLen;
 
-  if (offset>=stripLen[strip]) return 0;
+  if (offset>=stripLen[strip]) return blackpixel;
   
   return leds[strip][offset];
 }

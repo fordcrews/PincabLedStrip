@@ -90,7 +90,7 @@ class LedStrip {
     void setPixel(uint32_t num, uint8_t red, uint8_t green, uint8_t blue) {
       setPixel(num, color(red, green, blue));
     }
-    int getPixel(uint32_t num);
+    CRGB& getPixel(uint32_t num);
 
     void show(void);
     int busy(void);
