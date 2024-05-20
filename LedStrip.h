@@ -35,16 +35,24 @@ FASTLED_USING_NAMESPACE
 //16           =====   D4
 //19           =====   D2
 //22           =====   D3
-#define DATA_PIN1   D5 
-#define DATA_PIN2   D6 
-#define DATA_PIN3   D7 
-#define DATA_PIN4   D8 
-#define DATA_PIN5   D1 
-#define DATA_PIN6   D4 
-#define DATA_PIN7   D2 
+
+#define DATA_PIN1  GPIO_NUM_5  
+#define DATA_PIN2  GPIO_NUM_6  
+#define DATA_PIN3  GPIO_NUM_7  
+#define DATA_PIN4  GPIO_NUM_8  
+#define DATA_PIN5  GPIO_NUM_1  
+#define DATA_PIN6  GPIO_NUM_4  
+#define DATA_PIN7  GPIO_NUM_2  
+
 #if (NUMBER_LEDSTRIP == 8)
-#define DATA_PIN8   D3 
+#define DATA_PIN8  GPIO_NUM_3  
 #endif
+
+// Define new GPIO pins for buttons
+#define BUTTON_PIN1  GPIO_NUM_16  
+#define BUTTON_PIN2  GPIO_NUM_17  
+#define BUTTON_PIN3  GPIO_NUM_18 
+#define BUTTON_PIN4  GPIO_NUM_21 
 
 //Why 8 ports ? (example)
 //
